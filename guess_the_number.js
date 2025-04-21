@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (userGuess === randomNumber) {
             resultDisplay.textContent = 'Congratulations! You guessed the number!';
         } else if (userGuess < randomNumber) {
-            resultDisplay.textContent = 'Too low! Try again.';
+            resultDisplay.textContent = 'Too low! Try again.Better luck next time.';
         } else {
-            resultDisplay.textContent = 'Too high! Try again.';
+            resultDisplay.textContent = 'Too high! Try again.Better luch next time.';
         }
     });
 });
