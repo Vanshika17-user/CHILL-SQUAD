@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (userGuess < randomNumber) {
             resultDisplay.textContent = 'Too low! Try again.';
         } else {
-            resultDisplay.textContent = 'Too high! Try again.';
+            resultDisplay.textContent = 'Too high! Try again.Better luch next time.';
         }
     });
 });
