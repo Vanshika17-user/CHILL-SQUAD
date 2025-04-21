@@ -38,10 +38,7 @@ function startGame() {
         }
     }, 1000); // Update every second
 
-    // Create a grid based on the current level
-    const gridSize = currentLevel; // Level determines grid size
-    const numbers = Array.from({ length: gridSize * gridSize }, (_, i) => i + 1); // Create an array of numbers
-    shuffleArray(numbers); // Shuffle the numbers for random arrangement
+    
 
     for (let row = 0; row < gridSize; row++) {
         for (let col = 0; col < gridSize; col++) {
