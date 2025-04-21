@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics Game</title>
+    <style>
+        body {
+            background-image: url('https://infinitylearn.com/surge/wp-content/uploads/2021/12/MicrosoftTeams-image-58.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+        .game-container {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text inside the container */
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Mathematics Game</h1>
+        <p id="math-question" style="font-size: 1.5em; color: #333;"></p>
+        <input type="number" id="math-answer" placeholder="Enter your answer" style="padding: 10px; width: 100%; margin: 10px -15px; border: 1px solid #ccc; border-radius: 5px;" />
+        <button id="submit-math" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Submit Answer</button>
+        <p id="math-result" style="margin-top: 20px; font-size: 1.2em;"></p>
+    </div>
+    <script src="math_game.js"></script>
+</body>
+</html>
