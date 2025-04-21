@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const questionDisplay = document.getElementById('math-question');
     const resultDisplay = document.getElementById('math-result');
 
-    // Function to generate a random math question
+    
     function generateMathQuestion() {
         let num1 = Math.floor(Math.random() * 10) + 1;
         let num2 = Math.floor(Math.random() * 10) + 1;

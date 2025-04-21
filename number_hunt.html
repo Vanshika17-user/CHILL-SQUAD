@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Hunt Game</title>
+    <style>
+        body {
+            background-image: url('https://t3.ftcdn.net/jpg/02/85/48/82/360_F_285488226_byR6hPVcxZ5ncjoU2n6meOm9LRSPzOlR.jpg');
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-position: center; /* Center the image */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+            max-height: 80vh; /* Limit the height of the grid */
+            overflow-y: auto; /* Allow scrolling if necessary */
+            aspect-ratio: 1; /* Maintain a square aspect ratio */
+        }
+        .number {
+            padding: 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #target-number {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #timer {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Number Hunt Game</h2>
+        <p>Select Difficulty Level:</p>
+        <select id="difficulty" onchange="setDifficulty()">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select>
+        <button id="start-button">Start Game</button>
+        <button id="stop-button">Stop Game</button>
+        <div id="score">Score: 0</div>
+        <div id="level">Level: 1</div>
+        <div id="target-number">Find the number: </div>
+        <div id="timer">Time Remaining: <span id="time">0</span> seconds</div>
+        <div id="game-area" class="grid"></div>
+    </div>
+    <script src="number_hunt.js"></script>
+</body>
+</html>
