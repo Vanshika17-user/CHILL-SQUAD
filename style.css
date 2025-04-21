@@ -26,7 +26,7 @@ input {
 .sudoku-grid {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    gap: 5px;
+    gap: 6px;
     max-width: 600px;
     margin: auto;
     padding: 20px;
