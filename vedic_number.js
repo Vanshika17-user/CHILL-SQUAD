@@ -8,4 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const result = numbers.reduce((acc, num) => acc + num, 0); // Example: sum of numbers
         resultDisplay.textContent = 'Result: ' + result;
     });
+});resultDisplay.textContent = 'Result: ' + result;
+});
 });
