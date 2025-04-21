@@ -7,4 +7,4 @@ document.addEventListener('DOMContentLoaded', function() {
         const numbers = numbersInput.split(',').map(Number);
         const result = numbers.reduce((acc, num) => acc + num, 0); // Example: sum of numbers in it
         resultDisplay.textContent = 'Result: ' + result;
-    });
+    }
