@@ -115,5 +115,10 @@ if (startButton) {
 }
 
 // Stop the game when the stop button is clicked
-
+if (stopButton) {
+    stopButton.addEventListener('click', function() {
+        clearInterval(timer); // Stop the timer
+        alert('Game stopped! Your score is: ' + score); // Notify the player
+    });
+}
 
