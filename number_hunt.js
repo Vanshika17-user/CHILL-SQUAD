@@ -107,3 +107,18 @@ function shuffleArray(array) {
 const startButton = document.getElementById('start-button');
 const stopButton = document.getElementById('stop-button'); // Get the stop button
 
+if (startButton) {
+    startButton.addEventListener('click', function() {
+        setDifficulty(); // Set difficulty before starting the game
+        startGame(); // Start the game with the selected difficulty
+    });
+}
+
+// Stop the game when the stop button is clicked
+if (stopButton) {
+    stopButton.addEventListener('click', function() {
+        clearInterval(timer); // Stop the timer
+        alert('Game stopped! Your score is: ' + score); // Notify the player
+    });
+}
+
