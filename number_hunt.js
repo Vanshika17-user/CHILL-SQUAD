@@ -82,3 +82,43 @@ function getTimeForDifficulty() {
             return 30; // 30 seconds
     }
 }
+function setNewTarget(numbers) {
+    targetNumber = numbers[Math.floor(Math.random() * numbers.length)]; // Randomly select a target number
+    document.getElementById('target-number').innerText = 'Find the number: ' + targetNumber; // Display the target number
+}
+
+function highlightTargetNumber() {
+    const targetElements = document.querySelectorAll('.number');
+    targetElements.forEach(element => {
+        if (element.innerText == targetNumber) {
+            element.style.backgroundColor = 'red'; // Highlight the target number
+        }
+    });
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Start the game when the start button is clicked
+const startButton = document.getElementById('start-button');
+const stopButton = document.getElementById('stop-button'); // Get the stop button
+
+if (startButton) {
+    startButton.addEventListener('click', function() {
+        setDifficulty(); // Set difficulty before starting the game
+        startGame(); // Start the game with the selected difficulty
+    });
+}
+
+// Stop the game when the stop button is clicked
+if (stopButton) {
+    stopButton.addEventListener('click', function() {
+        clearInterval(timer); // Stop the timer
+        alert('Game stopped! Your score is: ' + score); // Notify the player
+    });
+}
+
