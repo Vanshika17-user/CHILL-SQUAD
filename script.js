@@ -21,4 +21,7 @@ fetch('http://127.0.0.1:5001/start_game')
             }
         });
     })
-    
+    .catch(error => {
+        console.error('Error fetching number:', error);
+        document.getElementById('result').innerText = 'Error connecting to the server.';
+    });
