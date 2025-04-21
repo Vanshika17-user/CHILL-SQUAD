@@ -94,7 +94,7 @@
                     }
                     const clueRow = document.createElement('div');
                     clueRow.className = 'guess-row';
-                    clueRow.innerHTML = `<span>${userInput}</span><span class="clue">${clue}</span>`;
+                    clueRow.innerHTML = <span>${userInput}</span><span class="clue">${clue}</span>;
                     clueContainer.appendChild(clueRow);
                 } else {
                     alert("Please enter a 4-digit code.");
@@ -139,8 +139,8 @@
                     }
                 }
 
-                return `${correctPosition} correct in position, ${correctDigits} correct but in wrong position`;
+                return ${correctPosition} correct in position, ${correctDigits} correct but in wrong position;
             }
         </script>
-    </div>
+    </div>
 </html>
