@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 answer = num1 / num2;
                 break;
         }
-
         questionDisplay.innerText = question;
         return answer; // Return the correct answer
     }
@@ -48,4 +47,5 @@ document.addEventListener('DOMContentLoaded', function() {
         correctAnswer = generateMathQuestion();
     });
 });
+
 

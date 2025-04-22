@@ -10,12 +10,12 @@
             text-align: center;
             background-image: url('https://st.depositphotos.com/1000434/52743/i/450/depositphotos_527439208-stock-photo-horizontal-vertical-grunge-background-ethnicity.jpg');
             background-size: cover;
-            padding: 50px;
+            padding: 55px;
             background-size: cover;
             padding: 50px;
         }
         .game-container {
-            background-color: rgba(236, 227, 104, 0.864);
+            background-color: rgba(102, 98, 44, 0.864);
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -23,12 +23,19 @@
             margin: auto;
         }
         h1 {
-            color: #333;
+            color: #dc0f0f;
         }
         input[type="text"] {
             padding: 10px;
             width: 80%;
-            margin: 10px 0;
+            margin: 11px 0;
+        }button {
+            padding: 11px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
         button {
             padding: 10px 20px;
@@ -39,13 +46,10 @@
             border-radius: 5px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #0e263f;
         }
-        #result {
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #333;
-        }
+
+        
     </style>
 </head>
 <body>
@@ -62,19 +66,19 @@
             const numbers = input.split(',').map(num => parseFloat(num.trim())).filter(num => !isNaN(num));
 
             if (numbers.length === 0) {
-                displayMessage('Please enter valid numbers.');
+                displayMessage('Please enter valid numbers. in it');
                 return;
             }
-
             const sum = numbers.reduce((acc, num) => acc + num, 0); // Calculate sum
             const average = sum / numbers.length; // Calculate average
             const product = numbers.reduce((acc, num) => acc * num, 1); // Calculate product
-            const max = Math.max(...numbers); // Find maximum
-            const min = Math.min(...numbers); // Find minimum
+            const maximum = Math.max(...numbers); // Find maximum
+            const mint = Math.min(...numbers); // Find minimum
+
+           
 
             displayMessage(Sum: ${sum}, Average: ${average}, Product: ${product}, Max: ${max}, Min: ${min});
         });
-
         function displayMessage(message) {
             document.getElementById('result').innerText = message;
         }
