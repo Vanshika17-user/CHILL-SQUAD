@@ -14,8 +14,6 @@
         .clue {
             margin-left: 10px;
         }
-    </style>
-    <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -56,7 +54,7 @@
 </head>
 <body>
     <div class="game-container">
-<h1 style="margin-top: 0;">Crack the Code Game</h1>
+        <h1 style="margin-top: 0;">Crack the Code Game</h1>
         <p>This is a logic-based puzzle game where the objective is to crack a 4-digit lock code using the given clues.</p>
         <p>Each row represents a different 4-digit guess. The right side clues indicate how many digits from that guess are correct and whether they are in the correct or incorrect position.</p>
         <p>The goal is to use logic and elimination to determine the correct 4-digit code.</p>
@@ -85,19 +83,22 @@
 
             submitButton.addEventListener('click', () => {
                 const userInput = document.getElementById('user-input').value;
-                if (userInput.length === 4) {
+                if (userInput.length === 4 && /^[0-9]+$/.test(userInput)) {
                     const clue = getClue(userInput, correctCode);
                     guessesRemaining--;
                     updateGuessesDisplay();
-                    if (guessesRemaining === 0) {
+                    if (userInput === correctCode) {
+                        alert("Congratulations! You've cracked the code: " + correctCode);
+                        return;
+                    } else if (guessesRemaining === 0) {
                         alert("Game over! The correct code was " + correctCode);
                     }
                     const clueRow = document.createElement('div');
                     clueRow.className = 'guess-row';
-                    clueRow.innerHTML = <span>${userInput}</span><span class="clue">${clue}</span>;
+                    clueRow.innerHTML = `<span>${userInput}</span><span class="clue">${clue}</span>`;
                     clueContainer.appendChild(clueRow);
                 } else {
-                    alert("Please enter a 4-digit code.");
+                    alert("Please enter a valid 4-digit code.");
                 }
             });
 
@@ -133,14 +134,20 @@
                 }
 
                 for (let i = 0; i < 4; i++) {
-                    if (!guessUsed[i] && code.includes(guess[i]) && !codeUsed[code.indexOf(guess[i])]) {
-                        correctDigits++;
-                        codeUsed[code.indexOf(guess[i])] = true; // Mark this digit in code as used
+                    if (!guessUsed[i]) {
+                        for (let j = 0; j < 4; j++) {
+                            if (!codeUsed[j] && guess[i] === code[j]) {
+                                correctDigits++;
+                                codeUsed[j] = true; // Mark this digit in code as used
+                                break;
+                            }
+                        }
                     }
                 }
 
-                return ${correctPosition} correct in position, ${correctDigits} correct but in wrong position;
+                return `${correctPosition} correct in position, ${correctDigits} correct but in wrong position`;
             }
         </script>
-    </div>
+    </div>
+</body>
 </html>
