@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://img.freepik.com/premium-vector/black-question-mark-pattern-background-answer-guess-faq-decorative-abstract-wallpaper_34480-1563.jpg');
+            background-size: cover;
+            padding: 50px;
+        }
+        .game-container {
+            background-color: rgba(123, 44, 43, 0.8);
+            border-radius: 10px;
+            padding: 40px;
+            max-width: 600px;
+            min-height: 300px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 80%;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 21px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Guess the Number Game</h1>
+        <p>Guess a number between 1 and 100:</p>
+        <input type="number" id="guess" min="1" max="100" />
+        <button id="submit">Submit Guess</button>
+        <button id="reset">Reset Game</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        let randomNumber = generateRandomNumber();
+        let attempts = 0;
+
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1;
+        }
+
+        document.getElementById('submit').addEventListener('click', () => {
+            const userGuess = Number(document.getElementById('guess').value);
+            attempts++;
+
+            if (userGuess < 1 || userGuess > 100) {
+                displayMessage('Please enter a number between 1 and 100.');
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                displayMessage(`🎉 Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.`);
+                document.getElementById('guess').disabled = true;
+                document.getElementById('submit').disabled = true;
+            } else if (userGuess < randomNumber) {
+                displayMessage('Too low! Try again. ' + giveHint(userGuess));
+            } else {
+                displayMessage('Too high! Try again. ' + giveHint(userGuess));
+            }
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+            randomNumber = generateRandomNumber();
+            attempts = 0;
+            displayMessage('');
+            document.getElementById('guess').value = '';
+            document.getElementById('guess').disabled = false;
+            document.getElementById('submit').disabled = false;
+            document.getElementById('guess').focus();
+        });
+
+        function displayMessage(message) {
+            document.getElementById('result').innerText = message;
+        }
+
+        function giveHint(guess) {
+            const difference = Math.abs(randomNumber - guess);
+            if (difference <= 10) {
+                return "You're getting warmer!";
+            } else if (difference <= 20) {
+                return "You're getting cooler.";
+            } else {
+                return "You're far off.";
+            }
+        }
+    </script>
+</body>
+</html>
+
