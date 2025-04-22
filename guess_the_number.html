@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess the Number Game</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,13 +14,12 @@
             padding: 50px;
         }
         .game-container {
-
-            background-color: rgba(169, 30, 28, 0.8);
-          main
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
             border-radius: 10px;
-            padding: 40px;
-            max-width: 600px;
-            min-height: 200px;
+            padding: 40px; /* Increased padding for height */
+            max-width: 600px; /* Box size remains increased */
+            min-height: 300px; /* Set a minimum height for the box */
+
             margin: auto;
         }
         h1 {
@@ -42,7 +42,7 @@
         }
         #result {
             margin-top: 20px;
-            font-size: 1.4em;
+            font-size: 1.2em;
         }
     </style>
 </head>
@@ -73,9 +73,7 @@
             }
 
             if (userGuess === randomNumber) {
-                displayMessage(`🎉 Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.`);
-                document.getElementById('guess').disabled = true;
-                document.getElementById('submit').disabled = true;
+                displayMessage(Congratulations! You've guessed the number ${randomNumber} in ${attempts} attempts.);
             } else if (userGuess < randomNumber) {
                 displayMessage('Too low! Try again. ' + giveHint(userGuess));
             } else {
@@ -88,9 +86,6 @@
             attempts = 0;
             displayMessage('');
             document.getElementById('guess').value = '';
-            document.getElementById('guess').disabled = false;
-            document.getElementById('submit').disabled = false;
-            document.getElementById('guess').focus();
         });
 
         function displayMessage(message) {
@@ -110,4 +105,3 @@
     </script>
 </body>
 </html>
-
