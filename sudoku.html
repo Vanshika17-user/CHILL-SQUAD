@@ -6,16 +6,16 @@
     <title>Sudoku Game</title>
     <style>
         body {
-            background-color: #38d833;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            min-height: 170vh;
+            min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
             text-align: center;
-            background-image: url('https://i.pinimg.com/736x/7f/44/45/7f444552ee2e21b51aba81bf4b7ee5c9.jp');
+            background-image: url('https://i.pinimg.com/736x/7f/44/45/7f444552ee2e21b51aba81bf4b7ee5c9.jpg');
             background-size: cover;
             padding: 50px;
         }
@@ -23,38 +23,38 @@
             margin-bottom: 10px;
         }
         .controls {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
         select, button {
-            padding: 9px 16px;
-            margin: 0 40px;
-            font-size: 3em;
-            border-radius: 7px;
+            padding: 8px 15px;
+            margin: 0 10px;
+            font-size: 1em;
+            border-radius: 6px;
             border: 2px solid #007BFF;
             cursor: pointer;
-            background-color:yellow;
+            background-color: white;
             color: #007BFF;
-            font-weight: lighter;
+            font-weight: bold;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         select:hover, button:hover {
-            background-color: #0e5aad;
-            color: rgb(159, 27, 27);
+            background-color: #007BFF;
+            color: white;
         }
         .sudoku-grid {
             display: grid;
             grid-template-columns: repeat(9, 1fr);
-            gap: 9px;
+            gap: 5px;
             max-width: 600px;
             margin: auto;
-            padding: 23px;
-            background-color: rgba(105, 24, 24, 0.85);
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .sudoku-cell {
-            width: 99px;
-            height: 80px;
+            width: 50px;
+            height: 50px;
             font-size: 24px;
             text-align: center;
             border: 1px solid #ccc;
@@ -62,14 +62,14 @@
             background-color: white;
         }
         .sudoku-cell:focus {
-            outline: 5px solid #d3d6d8;
-            background-color: #0a4bac;
+            outline: 2px solid #007BFF;
+            background-color: #e6f0ff;
         }
         #sudoku-result {
-            margin-top: 50px;
-            font-size: 1.6em;
+            margin-top: 20px;
+            font-size: 1.2em;
             min-height: 1.5em;
-            color: #d9534f;/* red for errors */
+            color: #d9534f; /* red for errors */
         }
         .back-button {
             display: inline-block;
@@ -77,19 +77,13 @@
             padding: 8px 15px;
             font-size: 1em;
             border-radius: 6px;
-            border: 5px solid #007BFF;
+            border: 2px solid #007BFF;
             cursor: pointer;
             background-color: white;
             color: #007BFF;
             font-weight: bold;
             text-decoration: none;
             transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .back-button:hover {
-            background-color: #007BFF;
-            color: white;
-            text-decoration: none;
-        }
         }
         .back-button:hover {
             background-color: #007BFF;
@@ -104,9 +98,9 @@
     <div class="controls">
         <label for="difficulty">Difficulty:</label>
         <select id="difficulty">
-            <option value="medium" selected>medium</option>
+            <option value="easy" selected>Easy</option>
             <option value="medium">Medium</option>
-            <option value="easy">easy</option>
+            <option value="hard">Hard</option>
         </select>
         <button id="hint-button">Hint</button>
         <button id="submit-sudoku">Submit</button>
